@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercício 02 - EcmaScript</title>
+</head>
+
+<style>
+    @import url('https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap');
+
+    * {
+      font-family: 'Roboto', sans-serif;
+      color: #3c4146;
+    }
+
+    body{
+      height: 100vh;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      vertical-align: center;
+    }
+
+    .container{
+      border: 1px solid #ccc;
+      padding: 20px;
+      max-width: 800px;
+      margin: auto;
+      border-radius: 5px;
+      margin: auto 10px;
+      box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
+    }
+
+    .codigo{
+      border: 1px solid #eee;
+      border-left: 3px solid #4285f4; 
+      padding: 10px;
+    }
+</style>
+
+<body>
+  <section class="container">
+    <header>
+      <h2>
+        Exercício 02 - EcmaScript
+      </h2>
+    </header>
+    <main>
+      <section>
+        <h3>vetor.forEach(...) x vetor.map(...)</h3>
+        <div>
+          <div class="codigo">
+            <span>vetor.forEach(function(a, b){ vetor[b] += 2; })</span> 
+            <br>
+            <span>vetor.map( i => i +=   2)</span>
+          </div>
+        </div>
+        <p>
+          A principal diferença entre os trechos de códigos acima é que o 
+          <strong>forEach</strong>
+          faz a iteração sob cada elemento do array e executa a operação,
+          contida no corpo da função, em cada elemento do array, e retorna o
+          <strong>mesmo array</strong> modificado. 
+          Por sua vez, o
+          <strong>map</strong> 
+          executa também a iteração sob cada elemento, executando a operação contida no 
+          corpo da função, mas retornando um 
+          <strong>novo array</strong> como resultado.
+        </p>
+        <p>Essa diferença é importante, pois no primeiro caso o vetor original é substituído 
+          e no segundo caso o vetor original é preservado.
+        </p>
+      </section>
+    </main>
+  </section>
+</body>
+</html>

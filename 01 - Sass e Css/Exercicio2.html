@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercício 02 - Sass e CSS</title>
+</head>
+
+<style>
+    @import url('https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap');
+
+    * {
+      font-family: 'Roboto', sans-serif;
+      color: #3c4146;
+    }
+
+    body{
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      vertical-align: center;
+    }
+
+    .container{
+      border: 1px solid #ccc;
+      padding: 50px;
+      max-width: 800px;
+      margin: 20px;
+      border-radius: 5px;
+      margin: auto 10px;
+      box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
+    }
+
+    .examples{
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+    }
+
+    @media screen  and (max-width:900px){
+      .examples{
+        flex-direction: column;
+      }
+    }
+
+    .examples > div{ 
+      font-size: small;
+      padding: 0px 20px;
+      margin: 10px;
+      border: 1px solid #ccc;
+      flex-grow: 1;
+      word-wrap: break-word;
+      overflow-x: auto;
+      background-color: #eff0f1;
+      border-radius: 5px;
+    }
+
+    .examples > div:last-child
+    {
+      background-color: white;
+    }
+
+    .examples > div h4{
+      text-decoration: underline;
+    }
+
+    a.link1 + p{
+      color: red;
+    }
+
+    a.link2 ~ p{
+    color: blue;
+  }
+</style>
+
+<body>
+  <section class="container">
+    <header>
+      <h2>
+        Exercício 02 - Sass e CSS
+      </h2>
+    </header>
+    <main>
+      <section>
+        <h3>Seletor "+"</h3>
+        <p>
+          O sinal “+” é utilizado quando se deseja selecionar o <strong>primeiro elemento</strong> 
+          que esteja localizado imediatamente após um determinado elemento
+        </p>
+        <p>
+          No exemplo abaixo, somente o primeiro parágrafo que estiver localizado logo após a tag 
+          &lt;a&gt; (classe link1) será modificado.
+        </p>
+        <div class="examples">
+          <div>
+            <h4>Uso do seletor "+"</h4>
+            <p>a.link1 + p {</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;color: red;</p>
+            <p>}</p>  
+            </p>
+          </div>
+          <div>
+            <h4>Código em html</h4>
+            <pre>
+            &lt;div&gt;
+              &lt;a class="link1"
+                   "href="http://www.google.com.br"
+                    target="_blank"&gt;
+                    Link externo
+              &lt;/a&gt;
+              &lt;p&gt;Texto modificado pelo seletor&lt;/p&gt;
+              &lt;p&gt;Texto não modificado pelo seletor&lt;/p&gt;
+            &lt;/div&gt;
+            </pre>
+          </div>
+          <div>
+            <div>
+              <h4>Resultado</h4>
+              <div>
+                <a class="link1"
+                   href="http://www.google.com.br"
+                   target="_blank">Link externo</a>
+                <p>Texto modificado pelo seletor</p>
+                <p>Texto não modificado pelo seletor</p>
+              </div>
+          </div>
+          </div>
+        </div>
+      </section>
+      <section>
+        <h3>Seletor "~"</h3>
+        <p>
+          O sinal “~” é utilizado quando se deseja selecionar <strong>todos os elementos</strong>
+          que são precedidos por um determinado elemento.
+        </p>
+        <p>
+          No exemplo abaixo, todos os elementos que forem precedidos pela tag &lt;a&gt; (classe link2) serão modificados.
+        </p>
+        <div class="examples">
+          <div>
+            <h4>Uso do seletor "~"</h4>
+            <p>a.link2 ~ p {</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;color: blue;</p>
+            <p>}</p>  
+            </p>
+          </div>
+          <div>
+            <h4>Código em html</h4>
+            <pre>
+            &lt;div&gt;
+              &lt;a class="link2"
+                   "href="http://www.google.com.br"
+                    target="_blank"&gt;
+                    Link externo
+              &lt;/a&gt;
+              &lt;p&gt;Texto modificado pelo seletor&lt;/p&gt;
+              &lt;p&gt;Texto modificado pelo seletor&lt;/p&gt;
+              &lt;div&gt;
+                &lt;p&gt;Texto não modificado pelo seletor&lt;/p&gt;
+                &lt;p&gt;Texto não modificado pelo seletor&lt;/p&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+            </pre>
+          </div>
+          <div>
+            <div>
+              <h4>Resultado</h4>
+              <div>
+                <a class="link2"
+                   href="http://www.google.com.br"
+                   target="_blank">Link externo</a>
+                <p>Texto modificado pelo seletor</p>
+                <p>Texto modificado pelo seletor</p>
+                <div>
+                  <p>Texto não modificado pelo seletor</p>
+                  <p>Texto não modificado pelo seletor</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section>
+        <h3>Observação:</h3>
+        <p>Para ambos os casos, os elementos precisam pertencer ao mesmo elemento pai
+           para o seletor surtir efeito.
+        </p>
+      </section>
+      <section>
+        <h3>Diferenças</h3>
+        <p>A principal diferença que pode ser constatada é que o seletor "+"
+           busca pelo primeiro elemento adjacente ao elemento de referência, enquanto o 
+           seletor "~" busca por todos os elementos precedidos pelo elemento de referência. </p>
+      </section>
+    </main>
+  </section>
+</body>
+</html>

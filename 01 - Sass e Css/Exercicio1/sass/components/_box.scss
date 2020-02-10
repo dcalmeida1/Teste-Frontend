@@ -1,0 +1,9 @@
+.box{
+  &__title{
+    @include myprops($font-poppins,16px,700,0.322px,21px)
+  }
+
+  &__body{
+    @include myprops($font-roboto,14px,400,0.09px,18px)
+  }
+}
